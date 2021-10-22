@@ -13,5 +13,16 @@ class Usuario{
     $sql = "DELETE FROM usuarios WHERE usuario_id = '{$id}'";
     $bd->query($sql, false);
   }
+  function insertar($aDatos){
+    require_once dirname(__file__) . "/../conexion/BD.class.php";
+    $bd = new BD();
+
+    $nombre_usuario = isset($aDatos['usuario']) ? $aDatos['usuario'] : "";
+    $password = isset($aDatos['password']) ? $aDatos['password'] : "";
+    $nombre_completo = isset($aDatos['nombre']) ? $aDatos['nombre'] : "";
+
+    $sql = "INSERT INTO usuarios (nombre_usuario, password, nombre_completo, fecha_registro) VALUES ('{$nombre_usuario}', '{$password}', '{$nombre_completo}', '2021-10-22')";
+    $bd->query($sql, false);
+  }
 }
  ?>

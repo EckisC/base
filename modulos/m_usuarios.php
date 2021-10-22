@@ -5,16 +5,22 @@ $oUsuario = new Usuario();
 $op = isset($_GET['op']) ? $_GET['op'] : "";
 
 switch ($op) {
-  case '602b1e2ac2239bc7e3d85205cca71e9d1d834abe':
+  case '602b1e2ac2239bc7e3d85205cca71e9d1d834abe': //eliminar
         $id = $_GET['id'];
         $oUsuario->eliminar($id);
         header("Location:index.php?modulo=usuarios");
         exit;
     break;
 
-  case '5043f762841a8c17c7385efd931b64d46ce0b044':
+  case '5043f762841a8c17c7385efd931b64d46ce0b044': //nuevo
         $oSmarty->assign("titulo", "Nuevo usuario");
         $oSmarty->assign("contenido", "usuario.tpl");
+    break;
+
+  case '3c67c9b854beb45203a0a6a835ceb142370e80de': //guardar
+        $oUsuario->insertar($_POST);
+        header("Location:index.php?modulo=usuarios");
+        exit;
     break;
 
   default:
