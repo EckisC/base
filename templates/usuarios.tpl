@@ -1,5 +1,6 @@
 <h1>Usuarios</h1>
 <center>
+  <a href="index.php?modulo=usuarios&op=5043f762841a8c17c7385efd931b64d46ce0b044">Nuevo</a>
 <table border="1" cellspacing="0" width="500">
   <thead>
     <tr>

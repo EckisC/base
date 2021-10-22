@@ -12,6 +12,11 @@ switch ($op) {
         exit;
     break;
 
+  case '5043f762841a8c17c7385efd931b64d46ce0b044':
+        $oSmarty->assign("titulo", "Nuevo usuario");
+        $oSmarty->assign("contenido", "usuario.tpl");
+    break;
+
   default:
     $datos = $oUsuario->listarUsuarios();
 
