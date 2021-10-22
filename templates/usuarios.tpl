@@ -7,12 +7,20 @@
     </tr>
   </thead>
   <tbody>
+    {if !empty($usuarios)}
     {assign var=i value=1}
     {foreach from=$usuarios item=usuario}
     <tr>
       <td>{$i++}</td><td>{$usuario.nombre_usuario}</td><td>{$usuario.nombre_completo}</td><td>{$usuario.fecha_registro}</td><td><a href="index.php?modulo=usuarios&op=602b1e2ac2239bc7e3d85205cca71e9d1d834abe&id={$usuario.usuario_id}">Eliminar</a></td>
     </tr>
     {/foreach}
+    {else}
+      <tr>
+        <td colspan="5">
+          <center><h3>No hay registros aún</h3></center>
+        </td>
+      </tr>
+    {/if}
   </tbody>
 </table>
 </center>
