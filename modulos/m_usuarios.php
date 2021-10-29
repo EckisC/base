@@ -15,6 +15,9 @@ switch ($op) {
   case '5043f762841a8c17c7385efd931b64d46ce0b044': //nuevo o modificar
         $id = isset($_GET['id']) ? $_GET['id'] : 0;
         $titulo = isset($_GET['id']) ? "Modificar" : "Nuevo";
+        $dUsuario = isset($_GET['id']) ? $oUsuario->buscarUsuarioPorId($id) : array("nombre_usuario" => "", "nombre_completo" => "");
+
+        $oSmarty->assign("d_usuario", $dUsuario);
         $oSmarty->assign("id", $id);
         $oSmarty->assign("titulo", "{$titulo} usuario");
         $oSmarty->assign("contenido", "usuario.tpl");

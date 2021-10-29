@@ -36,5 +36,13 @@ class Usuario{
     $sql = "UPDATE usuarios SET nombre_usuario = '{$nombre_usuario}'{$password}, nombre_completo = '{$nombre_completo}' WHERE usuario_id = '{$id}'";
     $bd->query($sql, false);
   }
+  function buscarUsuarioPorId($id){
+    require_once dirname(__file__) . "/../conexion/BD.class.php";
+    $bd = new BD();
+    $sql = "SELECT * FROM usuarios WHERE usuario_id = '{$id}'";
+
+    $tmp = $bd->query($sql);
+    return $tmp[0];
+  }
 }
  ?>
