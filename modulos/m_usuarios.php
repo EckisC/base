@@ -12,13 +12,20 @@ switch ($op) {
         exit;
     break;
 
-  case '5043f762841a8c17c7385efd931b64d46ce0b044': //nuevo
-        $oSmarty->assign("titulo", "Nuevo usuario");
+  case '5043f762841a8c17c7385efd931b64d46ce0b044': //nuevo o modificar
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        $titulo = isset($_GET['id']) ? "Modificar" : "Nuevo";
+        $oSmarty->assign("id", $id);
+        $oSmarty->assign("titulo", "{$titulo} usuario");
         $oSmarty->assign("contenido", "usuario.tpl");
     break;
 
   case '3c67c9b854beb45203a0a6a835ceb142370e80de': //guardar
-        $oUsuario->insertar($_POST);
+        if ($_POST['id'] == 0) {
+          $oUsuario->insertar($_POST);
+        } else {
+          $oUsuario->modificar($_POST);
+        }
         header("Location:index.php?modulo=usuarios");
         exit;
     break;
