@@ -3,7 +3,8 @@ include_once dirname(__file__) . "/../include/api/Usuario.class.php";
 $oUsuario = new Usuario();
 
 $op = isset($_GET['op']) ? $_GET['op'] : "";
-
+//En este caso para cualquier caso debe de mostrarse esta variable con la oción del menu
+$oSmarty->assign("menu", "usuarios");
 switch ($op) {
   case '602b1e2ac2239bc7e3d85205cca71e9d1d834abe': //eliminar
         $id = $_GET['id'];
